@@ -370,6 +370,12 @@
     panel.style.height = '100%';
   } else if (OPEN) {
     panel.classList.add('open');
+    panel.style.position = 'fixed';
+    panel.style.top = '50%';
+    panel.style.left = '50%';
+    panel.style.bottom = 'auto';
+    panel.style.right = 'auto';
+    panel.style.transform = 'translate(-50%, -50%)';
   }
 
   panel.innerHTML = [
