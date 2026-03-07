@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infoagent Cadillac — Demo Widget</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+    .hero {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; text-align: center; padding: 40px 20px;
+    }
+    .hero h1 { font-size: 36px; margin-bottom: 12px; font-weight: 700; color: #0f172a; }
+    .hero p { font-size: 18px; color: #64748b; max-width: 500px; line-height: 1.6; }
+    .hero .badge {
+      display: inline-block; margin-top: 20px; padding: 6px 16px;
+      background: #0f172a; color: #94a3b8; border-radius: 16px;
+      font-size: 12px; letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>[Nome Azienda]</h1>
+    <p>InfoAgent enterprise con sidebar, interview e prospetti personalizzati.</p>
+    <span class="badge">CADILLAC THEME &mdash; Powered by Infoagent</span>
+  </div>
+
+  <script
+    src="embed.js"
+    data-api="https://infoagent-cadillac-template.onrender.com/chat"
+    data-title="[Nome Azienda]"
+    data-subtitle="InfoAgent"
+    data-placeholder="Scrivi un messaggio..."
+    data-color="#2563eb"
+    data-position="right"
+    data-welcome="Sono InfoAgent di [Nome Azienda]. Chiedimi informazioni o avvia un prospetto personalizzato."
+    data-welcome-chips='["Chi siete?","Cosa offrite?","Prepara un prospetto per me"]'
+    data-lang="it"
+    data-mode="popup"
+    data-theme="cadillac"
+  ></script>
+</body>
+</html>

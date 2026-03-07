@@ -1,0 +1,38 @@
+{
+  "header": {
+    "status": "Online",
+    "copy_title": "Copia conversazione",
+    "download_title": "Scarica conversazione",
+    "close_title": "Chiudi"
+  },
+  "sidebar": {
+    "brand_sub": "InfoAgent",
+    "section_label": "COSA POSSO FARE",
+    "chat_label": "Chat libera",
+    "contacts_label": "Contatti",
+    "contacts_msg": "Come posso contattarvi?",
+    "recap_label": "Riassunto email",
+    "recap_msg": "Mandami un riassunto via email",
+    "footer": "Risposte basate su documentazione verificata"
+  },
+  "welcome": {
+    "title": "Come posso aiutarti?",
+    "sub_fallback": "Sono InfoAgent di ${TITLE}. Chiedimi informazioni o avvia un prospetto personalizzato.",
+    "default_chips": ["Chi siete?", "Cosa offrite?", "Prepara un prospetto per me"],
+    "highlight_keyword": "prospetto"
+  },
+  "disclaimer": "Le risposte sono basate esclusivamente sulla documentazione ufficiale",
+  "export": {
+    "role_user": "Utente",
+    "role_assistant": "InfoAgent",
+    "header": "Conversazione",
+    "date_label": "Data:",
+    "footer": "Esportato da Infoagent",
+    "no_messages_download": "Nessun messaggio da esportare",
+    "no_messages_copy": "Nessun messaggio da copiare",
+    "filename_prefix": "conversazione-",
+    "clipboard_header": "Conversazione con",
+    "clipboard_count": "Messaggi:",
+    "copied_toast": "\u2713 Copiato negli appunti"
+  }
+}

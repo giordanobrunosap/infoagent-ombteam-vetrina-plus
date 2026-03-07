@@ -1,0 +1,608 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Infoagent — Cadillac Theme
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables ─────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] {
+  --bg-color: #e2e8f0;
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #94a3b8;
+  --chat-bg: #ffffff;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bot-msg-bg: #f8fafc;
+  --bot-msg-border: #e2e8f0;
+  --user-msg-bg: #2563eb;
+  --user-msg-text: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+}
+
+/* ── App Container ─────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-app-container {
+  display: flex;
+  width: 500px;
+  height: 620px;
+  background-color: var(--chat-bg);
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-sidebar {
+  width: 155px;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-brand {
+  padding: 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-brand-icon {
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-brand-name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(155px - 60px);
+  display: block;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-brand-sub {
+  color: var(--sidebar-text);
+  font-size: 0.65rem;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 8px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-label {
+  color: var(--sidebar-text);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0 8px;
+  margin-bottom: 8px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  color: var(--sidebar-text);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  font-family: inherit;
+  width: 100%;
+  line-height: 1.3;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-item i {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-item span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 6px 10px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-footer {
+  padding: 12px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--sidebar-text);
+  font-size: 0.6rem;
+  line-height: 1.4;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-sidebar-footer i {
+  color: #10b981;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Main Chat Area ────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-main-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--chat-bg);
+  min-width: 0;
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--bot-msg-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--chat-bg);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-bot-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-bot-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-bot-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-bot-status {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-header-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-btn-icon {
+  background: none;
+  border: 1px solid var(--bot-msg-border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-btn-icon:hover {
+  background-color: var(--bot-msg-bg);
+  color: var(--text-main);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-btn-icon i {
+  font-size: 0.95rem;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-close-btn {
+  /* Close inherits 32x32 from .ia-btn-icon */
+}
+
+/* Hide the base close button (theme provides its own) */
+.ia-panel[data-theme="cadillac"] .ia-close {
+  display: none;
+}
+
+/* ── Messages ──────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-msg {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-msg a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-msg-assistant {
+  align-self: flex-start;
+  background-color: var(--bot-msg-bg);
+  border: 1px solid var(--bot-msg-border);
+  border-bottom-left-radius: 4px;
+  color: var(--text-main);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-msg-user {
+  align-self: flex-end;
+  background-color: var(--user-msg-bg);
+  color: var(--user-msg-text);
+  border-bottom-right-radius: 4px;
+}
+
+/* ── Chips (in-chat) ───────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-chip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: #fff;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-chip:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── Typing Indicator ──────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-typing {
+  align-self: flex-start;
+  padding: 12px 16px;
+  background: var(--bot-msg-bg);
+  border: 1px solid var(--bot-msg-border);
+  border-radius: 12px;
+  display: none;
+  gap: 4px;
+  align-items: center;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-typing span {
+  width: 7px;
+  height: 7px;
+  background: var(--text-muted);
+  border-radius: 50%;
+  animation: ia-cadillac-bounce 1.2s infinite;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-typing span:nth-child(2) { animation-delay: 0.2s; }
+.ia-panel[data-theme="cadillac"] .ia-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes ia-cadillac-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+}
+
+/* ── Welcome State ─────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-welcome {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-icon {
+  width: 52px;
+  height: 52px;
+  background-color: #dbeafe;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-icon i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 8px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 260px;
+  margin: 0 auto 20px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-chip {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--bot-msg-border);
+  background: #fff;
+  color: var(--text-main);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-chip-highlight {
+  background-color: #dbeafe;
+  border-color: #bfdbfe;
+  color: var(--primary);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-welcome-chip-highlight:hover {
+  background-color: #bfdbfe;
+}
+
+/* ── Input Area ────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-input-area {
+  padding: 10px 14px 4px;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background-color: var(--chat-bg);
+  border-top: 1px solid var(--bot-msg-border);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-input {
+  flex: 1;
+  border: 1px solid var(--bot-msg-border);
+  background-color: var(--bot-msg-bg);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 0.88rem;
+  outline: none;
+  font-family: inherit;
+  color: var(--text-main);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-input::placeholder {
+  color: #a1a1aa;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-send {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-send:hover {
+  background-color: var(--primary-hover);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-send:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Disclaimer ────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-disclaimer {
+  text-align: center;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  padding: 6px 14px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-disclaimer i {
+  color: #10b981;
+  font-size: 0.8rem;
+}
+
+/* ── Toast ──────────────────────────────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-toast {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: var(--sidebar-bg);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Hamburger button (mobile only) ────────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--bot-msg-border);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.ia-panel[data-theme="cadillac"] .ia-hamburger:hover {
+  background-color: var(--bot-msg-bg);
+  color: var(--text-main);
+}
+
+.ia-panel[data-theme="cadillac"] .ia-hamburger i {
+  font-size: 0.95rem;
+}
+
+/* ── Sidebar backdrop (mobile only) ───────────────────────────── */
+.ia-panel[data-theme="cadillac"] .ia-sidebar-backdrop {
+  display: none;
+}
+
+/* ── Responsive: sidebar as overlay on mobile ─────────────────── */
+@media (max-width: 768px) {
+  .ia-panel[data-theme="cadillac"] .ia-hamburger {
+    display: flex;
+  }
+
+  .ia-panel[data-theme="cadillac"] .ia-app-container {
+    width: calc(100vw - 20px);
+    max-width: 400px;
+    height: calc(100vh - 100px);
+    max-height: 620px;
+    position: relative;
+  }
+
+  .ia-panel[data-theme="cadillac"] .ia-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 20;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .ia-panel[data-theme="cadillac"] .ia-sidebar.ia-sidebar-open {
+    transform: translateX(0);
+  }
+
+  .ia-panel[data-theme="cadillac"] .ia-sidebar-backdrop {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 19;
+  }
+
+  .ia-panel[data-theme="cadillac"] .ia-sidebar-backdrop.ia-sidebar-backdrop-visible {
+    display: block;
+  }
+}

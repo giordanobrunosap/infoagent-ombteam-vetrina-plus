@@ -1,0 +1,38 @@
+{
+  "header": {
+    "status": "Online",
+    "copy_title": "Copy conversation",
+    "download_title": "Download conversation",
+    "close_title": "Close"
+  },
+  "sidebar": {
+    "brand_sub": "InfoAgent",
+    "section_label": "WHAT I CAN DO",
+    "chat_label": "Free chat",
+    "contacts_label": "Contacts",
+    "contacts_msg": "How can I contact you?",
+    "recap_label": "Email summary",
+    "recap_msg": "Send me a summary by email",
+    "footer": "Answers based on verified documentation"
+  },
+  "welcome": {
+    "title": "How can I help you?",
+    "sub_fallback": "I'm the InfoAgent of ${TITLE}. Ask me for information or start a personalized proposal.",
+    "default_chips": ["Who are you?", "What do you offer?", "Prepare a proposal for me"],
+    "highlight_keyword": "proposal"
+  },
+  "disclaimer": "Answers are based exclusively on official documentation",
+  "export": {
+    "role_user": "User",
+    "role_assistant": "InfoAgent",
+    "header": "Conversation",
+    "date_label": "Date:",
+    "footer": "Exported from Infoagent",
+    "no_messages_download": "No messages to export",
+    "no_messages_copy": "No messages to copy",
+    "filename_prefix": "conversation-",
+    "clipboard_header": "Conversation with",
+    "clipboard_count": "Messages:",
+    "copied_toast": "\u2713 Copied to clipboard"
+  }
+}

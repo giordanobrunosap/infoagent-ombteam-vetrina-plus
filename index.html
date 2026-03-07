@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoAgent Vetrina</title>
+  <style>
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #fff; }
+    .ia-panel[data-theme="cadillac"] .ia-app-container {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    @media (max-width: 768px) {
+      .ia-panel[data-theme="cadillac"] .ia-app-container {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var lang = params.get('lang') || 'it';
+    var persona = params.get('persona') || '';
+    var apiBase = params.get('api') || 'https://infoagent-ombteam-vetrina.onrender.com';
+    var apiUrl = apiBase.replace(/\/+$/, '');
+    document.documentElement.lang = lang;
+    var s = document.createElement('script');
+    s.src = 'embed.js';
+    s.setAttribute('data-api', apiUrl);
+    s.setAttribute('data-title', 'InfoAgent');
+    s.setAttribute('data-subtitle', 'InfoAgent Vetrina');
+    s.setAttribute('data-placeholder', lang === 'en' ? 'Type a message...' : 'Scrivi un messaggio...');
+    s.setAttribute('data-color', '#2563eb');
+    s.setAttribute('data-position', 'right');
+    s.setAttribute('data-welcome', lang === 'en'
+      ? 'Hi! How can I help you? I can give you information or prepare a personalized proposal for you.'
+      : 'Ciao! Come posso aiutarti? Posso darti informazioni o preparare un prospetto personalizzato per te.');
+    s.setAttribute('data-welcome-chips', lang === 'en'
+      ? '["Who are you?","What do you offer?","Prepare a proposal for me"]'
+      : '["Chi siete?","Cosa offrite?","Prepara un prospetto per me"]');
+    s.setAttribute('data-lang', lang);
+    if (persona) s.setAttribute('data-persona', persona);
+    s.setAttribute('data-mode', 'embedded');
+    s.setAttribute('data-theme', 'cadillac');
+    document.body.appendChild(s);
+  })();
+  </script>
+</body>
+</html>

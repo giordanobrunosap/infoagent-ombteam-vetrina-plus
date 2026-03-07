@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test InfoAgent Embed</title></head>
+<body>
+<h1>Test InfoAgent Embed — 1 riga</h1>
+<p>Lingua: <select id="langSelect">
+  <option value="it">IT</option>
+  <option value="en">EN</option>
+  <option value="es">ES</option>
+  <option value="de">DE</option>
+  <option value="fr">FR</option>
+</select></p>
+
+<script>
+// Al cambio lingua, ricarica embed con nuovo data-lang
+document.getElementById('langSelect').addEventListener('change', function() {
+  // Rimuovi widget esistente
+  var oldScript = document.querySelector('script[data-api]');
+  if (oldScript) oldScript.remove();
+  // Rimuovi tutti gli elementi widget iniettati
+  document.querySelectorAll('.ia-panel, .ia-bubble, [id^="ia-"]').forEach(function(el) { el.remove(); });
+  // Rimuovi stili iniettati dal widget
+  document.querySelectorAll('style').forEach(function(st) {
+    if (st.textContent.indexOf('ia-') !== -1) st.remove();
+  });
+
+  // Ricrea con nuova lingua
+  var s = document.createElement('script');
+  s.src = 'embed.js';
+  s.setAttribute('data-api', 'https://infoagent-ombteam-vetrina.onrender.com');
+  s.setAttribute('data-lang', this.value);
+  document.body.appendChild(s);
+});
+
+// Caricamento iniziale
+(function() {
+  var s = document.createElement('script');
+  s.src = 'embed.js';
+  s.setAttribute('data-api', 'https://infoagent-ombteam-vetrina.onrender.com');
+  s.setAttribute('data-lang', 'it');
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>
