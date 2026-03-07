@@ -26,6 +26,7 @@
         try { return JSON.parse(script.getAttribute('data-welcome-chips') || '[]'); }
         catch (e) { return []; }
       })(),
+      open: script.getAttribute('data-open') === 'true',
     };
   }
 
@@ -33,7 +34,7 @@
     // Explicit data-* attributes always win over remote values
     var merged = {};
     var keys = ['title', 'subtitle', 'placeholder', 'color', 'position',
-                'welcomeMessage', 'mode', 'lang', 'theme', 'persona', 'welcomeChips'];
+                'welcomeMessage', 'mode', 'lang', 'theme', 'persona', 'welcomeChips', 'open'];
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
       var attrName = k === 'welcomeMessage' ? 'data-welcome'
@@ -64,6 +65,7 @@
     var LANG        = cfg.lang || 'it';
     var THEME       = cfg.theme || '';
     var PERSONA     = cfg.persona || '';
+    var OPEN        = cfg.open === true || cfg.open === 'true';
     var welcomeChips = cfg.welcomeChips || [];
 
   // ── Widget strings ──────────────────────────────────────────────
@@ -342,9 +344,9 @@
   // ── DOM ─────────────────────────────────────────────────────────
   const isPopup = MODE === 'popup';
 
-  // Bubble (popup only)
+  // Bubble (popup only, hidden when open=true)
   let bubble;
-  if (isPopup) {
+  if (isPopup && !OPEN) {
     bubble = document.createElement('button');
     bubble.id = UID + '-bubble';
     bubble.className = 'ia-bubble';
@@ -366,6 +368,8 @@
     panel.style[POSITION] = 'auto';
     panel.style.width = '100%';
     panel.style.height = '100%';
+  } else if (OPEN) {
+    panel.classList.add('open');
   }
 
   panel.innerHTML = [
@@ -564,10 +568,12 @@
   inputEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') sendMessage(inputEl.value); });
 
   if (isPopup) {
-    bubble.addEventListener('click', function () {
-      panel.classList.toggle('open');
-      if (panel.classList.contains('open')) inputEl.focus();
-    });
+    if (bubble) {
+      bubble.addEventListener('click', function () {
+        panel.classList.toggle('open');
+        if (panel.classList.contains('open')) inputEl.focus();
+      });
+    }
     if (closeBtn) closeBtn.addEventListener('click', function () { panel.classList.remove('open'); });
   }
 

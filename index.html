@@ -6,20 +6,6 @@
   <title>InfoAgent Vetrina</title>
   <style>
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #fff; }
-    .ia-panel[data-theme="cadillac"] .ia-app-container {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-    @media (max-width: 768px) {
-      .ia-panel[data-theme="cadillac"] .ia-app-container {
-        width: 100% !important;
-        height: 100% !important;
-        max-width: none;
-      }
-    }
   </style>
 </head>
 <body>
@@ -29,6 +15,7 @@
     var lang = params.get('lang') || 'it';
     var persona = params.get('persona') || '';
     var mode = params.get('mode') || '';
+    var open = params.get('open') || '';
     var apiBase = params.get('api') || 'https://infoagent-ombteam-vetrina.onrender.com';
     var apiUrl = apiBase.replace(/\/+$/, '');
     document.documentElement.lang = lang;
@@ -49,7 +36,25 @@
     s.setAttribute('data-lang', lang);
     if (persona) s.setAttribute('data-persona', persona);
     if (mode) s.setAttribute('data-mode', mode);
+    if (open) s.setAttribute('data-open', open);
     s.setAttribute('data-theme', 'cadillac');
+
+    // Fullscreen override only for embedded mode
+    if (mode === 'embedded') {
+      var embStyle = document.createElement('style');
+      embStyle.textContent = [
+        '.ia-panel[data-theme="cadillac"] .ia-app-container {',
+        '  width: 100% !important; height: 100% !important;',
+        '  max-width: none; border-radius: 0; box-shadow: none;',
+        '}',
+        '@media (max-width: 768px) {',
+        '  .ia-panel[data-theme="cadillac"] .ia-app-container {',
+        '    width: 100% !important; height: 100% !important; max-width: none;',
+        '  }',
+        '}',
+      ].join('\n');
+      document.head.appendChild(embStyle);
+    }
     document.body.appendChild(s);
   })();
   </script>
