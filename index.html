@@ -28,6 +28,7 @@
     var params = new URLSearchParams(window.location.search);
     var lang = params.get('lang') || 'it';
     var persona = params.get('persona') || '';
+    var mode = params.get('mode') || '';
     var apiBase = params.get('api') || 'https://infoagent-ombteam-vetrina.onrender.com';
     var apiUrl = apiBase.replace(/\/+$/, '');
     document.documentElement.lang = lang;
@@ -47,7 +48,7 @@
       : '["Chi siete?","Cosa offrite?","Prepara un prospetto per me"]');
     s.setAttribute('data-lang', lang);
     if (persona) s.setAttribute('data-persona', persona);
-    s.setAttribute('data-mode', 'embedded');
+    if (mode) s.setAttribute('data-mode', mode);
     s.setAttribute('data-theme', 'cadillac');
     document.body.appendChild(s);
   })();
