@@ -563,7 +563,7 @@
 }
 
 /* ── Responsive: sidebar as overlay on mobile ─────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .ia-panel[data-theme="cadillac"] .ia-hamburger {
     display: flex;
   }
