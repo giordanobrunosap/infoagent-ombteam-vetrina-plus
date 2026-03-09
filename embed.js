@@ -423,10 +423,22 @@
 
   // ── State ───────────────────────────────────────────────────────
   let isSending = false;
+  var userScrolled = false;
+  var programmaticScroll = false;
+
+  // Detect user scroll vs programmatic scroll
+  messagesEl.addEventListener('scroll', function () {
+    if (programmaticScroll) return;
+    var atBottom = messagesEl.scrollHeight - messagesEl.scrollTop - messagesEl.clientHeight < 50;
+    userScrolled = !atBottom;
+  });
 
   // ── Functions ───────────────────────────────────────────────────
   function scrollToBottom() {
+    if (userScrolled) return;
+    programmaticScroll = true;
     messagesEl.scrollTop = messagesEl.scrollHeight;
+    programmaticScroll = false;
   }
 
   function hideWelcome() {
@@ -564,6 +576,7 @@
       hideTyping();
       addMessage('assistant', S.error);
     } finally {
+      userScrolled = false;
       isSending = false;
       sendBtn.disabled = false;
       inputEl.focus();
