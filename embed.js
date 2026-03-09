@@ -34,7 +34,7 @@
     // Explicit data-* attributes always win over remote values
     var merged = {};
     var keys = ['title', 'subtitle', 'placeholder', 'color', 'position',
-                'welcomeMessage', 'mode', 'lang', 'theme', 'persona', 'welcomeChips', 'open'];
+                'welcomeMessage', 'mode', 'lang', 'theme', 'persona', 'welcomeChips', 'open', 'capabilities'];
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
       var attrName = k === 'welcomeMessage' ? 'data-welcome'
@@ -66,6 +66,7 @@
     var THEME       = cfg.theme || '';
     var PERSONA     = cfg.persona || '';
     var OPEN        = cfg.open === true || cfg.open === 'true';
+    var CAPABILITIES = cfg.capabilities || {};
     var welcomeChips = cfg.welcomeChips || [];
 
   // ── Widget strings ──────────────────────────────────────────────
@@ -647,6 +648,7 @@
         MODE: MODE,
         API_URL: CHAT_URL,
         SCRIPT_BASE: SCRIPT_BASE,
+        CAPABILITIES: CAPABILITIES,
       },
       strings: S,
     };
