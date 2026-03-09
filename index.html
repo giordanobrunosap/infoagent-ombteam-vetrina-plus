@@ -23,22 +23,12 @@
     var s = document.createElement('script');
     s.src = 'embed.js';
     s.setAttribute('data-api', apiUrl);
-    s.setAttribute('data-title', 'InfoAgent');
-    s.setAttribute('data-subtitle', 'InfoAgent');
-    s.setAttribute('data-placeholder', lang === 'en' ? 'Type a message...' : 'Scrivi un messaggio...');
-    s.setAttribute('data-color', '#2563eb');
-    s.setAttribute('data-position', 'right');
-    s.setAttribute('data-welcome', lang === 'en'
-      ? 'Hi! How can I help you? I can give you information or prepare a personalized proposal for you.'
-      : 'Ciao! Come posso aiutarti? Posso darti informazioni o preparare un prospetto personalizzato per te.');
-    s.setAttribute('data-welcome-chips', lang === 'en'
-      ? '["Who are you?","What do you offer?","Prepare a proposal for me"]'
-      : '["Chi siete?","Cosa offrite?","Prepara un prospetto per me"]');
     s.setAttribute('data-lang', lang);
+    s.setAttribute('data-theme', 'cadillac');
+    s.setAttribute('data-position', 'right');
     if (persona) s.setAttribute('data-persona', persona);
     if (mode) s.setAttribute('data-mode', mode);
     if (open) s.setAttribute('data-open', open);
-    s.setAttribute('data-theme', 'cadillac');
 
     // Fullscreen override only for embedded mode
     if (mode === 'embedded') {
